@@ -10,13 +10,8 @@ rota.register('clientes', views.ClienteViewSet, basename='clientes')
 rota.register('categoria', views.CategoriaViewSet, basename='categoria')
 rota.register('pedido', views.PedidoViewSet, basename='pedido')
 rota.register('pedidoItem', views.PedidoItemViewSet, basename='pedidoItem')
+rota.register('avalicoes', views.AvaliacaoViewSet, basename='avaliacoes')
+rota.register('imagens', views.ImagemViewSet, basename='imagens')
 
-rota_produto = routers.NestedDefaultRouter(rota,'produtos', lookup='produtos')
-rota_produto.register('avaliacoes', views.AvaliacaoViewSet)
+urlpatterns = rota.urls
 
-urlpatterns = [
-    path('', include(rota.urls)),
-    path('', include( rota_produto.urls))
-    
-    
-]

@@ -1,7 +1,7 @@
 from decimal import Decimal
 from rest_framework import serializers
 
-from home.models import  Avaliacao, Categoria, Cliente, PedidoItem, Produto,Pedido
+from home.models import  Avaliacao, Categoria, Cliente, Imagens, PedidoItem, Produto,Pedido
 
 # class ProdutoSerializer(serializers.Serializer):
 #     id= serializers.IntegerField()
@@ -47,3 +47,8 @@ class PedidoItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = PedidoItem
         fields = ['id', 'produto','categoria','quantidade']
+        
+class ImagemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model =  Imagens
+        fields = ['id','titulo','foto']

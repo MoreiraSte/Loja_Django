@@ -1,6 +1,6 @@
 from urllib import response
-from .models import Avaliacao, Cliente, Pedido, Produto,Categoria, PedidoItem
-from .serializer import AvaliacaoSerializer, CategoriaSerializer, PedidoItemSerializer, ProdutoSerializer,PedidoSerializer, ClienteSerializer
+from .models import Avaliacao, Cliente, Pedido, Produto,Categoria, PedidoItem,Imagens
+from .serializer import AvaliacaoSerializer, CategoriaSerializer, ImagemSerializer, PedidoItemSerializer, ProdutoSerializer,PedidoSerializer, ClienteSerializer
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.views import APIView
@@ -49,6 +49,10 @@ class ProdutoFiltro(FilterSet):
             'categoria_id': ['exact'],
             'qtd_estoque':['gt', 'lt']
         }
+   
+class ImagemViewSet(viewsets.ModelViewSet):
+    queryset = Imagens.objects.all()
+    serializer_class= ImagemSerializer
    
 class ProdutoViewSet(viewsets.ModelViewSet):
     

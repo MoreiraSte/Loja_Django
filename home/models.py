@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from urllib import request
 from xml.dom.minidom import CharacterData
 from django.db import models
@@ -127,3 +128,6 @@ class Avaliacao(models.Model):
     def __str__(self):
         return self.nota
      
+class Imagens(models.Model):
+    titulo = models.CharField(max_length=255)
+    foto = models.ImageField(upload_to='home/imagens')
