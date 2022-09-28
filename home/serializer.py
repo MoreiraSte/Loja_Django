@@ -1,6 +1,6 @@
 from decimal import Decimal
 from rest_framework import serializers
-
+from  pictures.contrib.rest_framework import PictureField
 from home.models import  Avaliacao, Categoria, Cliente, Imagens, PedidoItem, Produto,Pedido
 
 # class ProdutoSerializer(serializers.Serializer):
@@ -52,3 +52,11 @@ class ImagemSerializer(serializers.ModelSerializer):
     class Meta:
         model =  Imagens
         fields = ['id','titulo','foto']
+    
+    foto = PictureField()
+    
+class AddImgSerializer(serializers.ModelSerializer):
+    class Meta:
+        model =  Imagens
+        fields = ['id','titulo','foto']
+    

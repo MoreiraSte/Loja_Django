@@ -1,6 +1,6 @@
 from urllib import response
 from .models import Avaliacao, Cliente, Pedido, Produto,Categoria, PedidoItem,Imagens
-from .serializer import AvaliacaoSerializer, CategoriaSerializer, ImagemSerializer, PedidoItemSerializer, ProdutoSerializer,PedidoSerializer, ClienteSerializer
+from .serializer import AddImgSerializer, AvaliacaoSerializer, CategoriaSerializer, ImagemSerializer, PedidoItemSerializer, ProdutoSerializer,PedidoSerializer, ClienteSerializer
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.views import APIView
@@ -53,6 +53,10 @@ class ProdutoFiltro(FilterSet):
 class ImagemViewSet(viewsets.ModelViewSet):
     queryset = Imagens.objects.all()
     serializer_class= ImagemSerializer
+    
+class AddImgViewSet(viewsets.ModelViewSet):
+    queryset = Imagens.objects.all()
+    serializer_class= AddImgSerializer
    
 class ProdutoViewSet(viewsets.ModelViewSet):
     

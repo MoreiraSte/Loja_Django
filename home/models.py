@@ -4,6 +4,7 @@ from xml.dom.minidom import CharacterData
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.core.validators import MaxValueValidator
+from pictures.models import PictureField
 
 
 
@@ -130,4 +131,4 @@ class Avaliacao(models.Model):
      
 class Imagens(models.Model):
     titulo = models.CharField(max_length=255)
-    foto = models.ImageField(upload_to='home/imagens')
+    foto = PictureField(upload_to='home/imagens')
